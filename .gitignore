@@ -1,0 +1,10 @@
+Debug
+*.cproject
+*.bak
+*.cogui
+*.comarker
+*.coproj
+*.pbxproj
+*.xml
+*.history
+*.config
