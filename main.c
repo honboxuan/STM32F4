@@ -23,8 +23,68 @@ int main(void) {
 	//usart_dma_init(usart_buffer, sizeof(usart_buffer));
 
 	printf(" ");
-/*
-	uint8_t first, second;
+
+
+	uint8_t first, second, third;
+
+
+	/*printf("ESC:\n");
+	uint16_t speed = 256;
+	spi2_init();
+
+	for (speed; speed < 350; speed++) {
+		while (millis < 100);
+		millis = 0;
+
+		SPI_Cmd(SPI2, ENABLE);
+
+		SPI_I2S_SendData(SPI2, 222);
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		first = SPI_I2S_ReceiveData(SPI2);
+		printf("%u, ", first);
+
+		SPI_I2S_SendData(SPI2, (speed >> 8));
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		second = SPI_I2S_ReceiveData(SPI2);
+		printf("%u, ", second);
+
+		SPI_I2S_SendData(SPI2, (speed & 255));
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		third = SPI_I2S_ReceiveData(SPI2);
+		printf("%u\n", third);
+
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_BSY) == SET);
+		SPI_Cmd(SPI2, DISABLE);
+		//printf("%u,%u,%u\n", first, second, third);
+	}
+	for (speed; speed > 256; speed--) {
+		while (millis < 100);
+		millis = 0;
+
+		SPI_Cmd(SPI2, ENABLE);
+
+		SPI_I2S_SendData(SPI2, 222);
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		first = SPI_I2S_ReceiveData(SPI2);
+		printf("%u, ", first);
+
+		SPI_I2S_SendData(SPI2, (speed >> 8));
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		second = SPI_I2S_ReceiveData(SPI2);
+		printf("%u, ", second);
+
+		SPI_I2S_SendData(SPI2, (speed & 255));
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		uint8_t third = SPI_I2S_ReceiveData(SPI2);
+		printf("%u\n", third);
+
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_BSY) == SET);
+		SPI_Cmd(SPI2, DISABLE);
+		//printf("%u,%u,%u\n", first, second, third);
+	}*/
+
+
+
 
 
 
@@ -56,7 +116,7 @@ int main(void) {
 
 	first = i2c_read_ack(I2C2);
 	printf("ID A: %u\t", first);
-*/
+
 /*
 	first = i2c_read_ack(I2C2);
 	second = i2c_read_nack(I2C2);
@@ -105,7 +165,7 @@ int main(void) {
 	printf("GyroZ: %d\n", ((int16_t)first << 8) | second);
 */
 
-	//i2c_stop(I2C2);
+	i2c_stop(I2C2);
 
 
 
